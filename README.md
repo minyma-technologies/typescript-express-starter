@@ -4,8 +4,16 @@
 
 - fetch the template from GitHub: `npx degit git@github.com:minyma/to-be-decided <target-directory-name>`
 - install dependencies: `npm install`
-- generate Prisma client: `prisma generate`
+- generate Prisma client: `npx prisma generate`
+- synch Prisma with db: `npx prisma migrate dev --init`
 - run dev server: `npm run start:dev`
+
+### Using Docker Compose
+- fetch the template from GitHub: `npx degit git@github.com:minyma/to-be-decided <target-directory-name>`
+- build the Docker image: `docker-compose build`
+- launch the containers: `docker-compose up`
+- `exec` into the server container: `docker exec -it typescript-express-prisma-starter_express_1 sh`
+- run the prisma initalization: `npx prisma migrate dev --name init`
 
 ## Included:
 
@@ -22,6 +30,7 @@ This template is _very_ based. It includes:
 - [x] [Prettier](https://prettier.io/) for style checking
 - [x] [Jest](https://jestjs.io/) for testing
 - [x] [Husky](https://typicode.github.io/husky/#/) for pre-commit hooks
+- [x] [Commitizen]()https://github.com/commitizen/cz-cli to enforce commit message rules
 
 ### Base features
 

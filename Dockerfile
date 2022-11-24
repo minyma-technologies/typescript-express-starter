@@ -1,20 +1,17 @@
 # Adapted from https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
 
 FROM node:16
-
-# Create app directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# install dependencies
 COPY package*.json ./
+RUN npm i
 
-# clean install only runtime dependencies
-RUN npm ci --only=production
-
-# Bundle app source
+# bundle app source
 COPY . .
+
+# generate prisma client
+RUN npx prisma generate
 
 EXPOSE 8080
 

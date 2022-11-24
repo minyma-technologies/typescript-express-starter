@@ -1,0 +1,23 @@
+# docker-compose.yml
+version: "3"
+services:
+  express:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      NODE_ENV: prod
+      DATABASE_URL: "postgresql://root:root@postgres:5432/dev-db?schema=public"
+      JWT_SECRET: "pssst!ssssecret"
+    ports:
+      - "8081:8080"
+    command: npm run start:prod
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "35432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dev-db
