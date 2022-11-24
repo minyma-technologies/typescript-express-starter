@@ -2,14 +2,16 @@
 
 ## Install
 
-- fetch the template from GitHub: `npx degit git@github.com:minyma/to-be-decided <target-directory-name>`
+- fetch the template from GitHub: `npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder> --mode=git`
+- `cd <target-folder>`
 - install dependencies: `npm install`
 - generate Prisma client: `npx prisma generate`
 - synch Prisma with db: `npx prisma migrate dev --init`
 - run dev server: `npm run start:dev`
 
 ### Using Docker Compose
-- fetch the template from GitHub: `npx degit git@github.com:minyma/to-be-decided <target-directory-name>`
+- fetch the template from GitHub: `npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder> --mode=git`
+- `cd <target-folder>`
 - build the Docker image: `docker-compose build`
 - launch the containers: `docker-compose up`
 - `exec` into the server container: `docker exec -it typescript-express-prisma-starter_express_1 sh`
@@ -30,7 +32,7 @@ This template is _very_ based. It includes:
 - [x] [Prettier](https://prettier.io/) for style checking
 - [x] [Jest](https://jestjs.io/) for testing
 - [x] [Husky](https://typicode.github.io/husky/#/) for pre-commit hooks
-- [x] [Commitizen]()https://github.com/commitizen/cz-cli to enforce commit message rules
+- [x] [Commitizen](https://github.com/commitizen/cz-cli) to enforce commit message rules
 
 ### Base features
 
@@ -40,6 +42,15 @@ This template is _very_ based. It includes:
 - [x] Login endpoint which cheks the hashed passwords and yields a `jwt` token at `api/auth/login POST`
 
 ## Usage
+
+### Commiting
+- this project uses commitizen
+- this allows for uniform commit messages as well as automatic changelog generation, based on commit messages
+- run `git commit` (no message needed)
+- select the type of commit you wish to make
+- add description
+- select if changes were braking or not (with respect to the api)
+- the write out commit message if needed
 
 ### Editing the data model
 
@@ -53,3 +64,12 @@ This template is _very_ based. It includes:
 - access newly added fields via `config.get('foo.bar.baz')`
 - note that the config loaded depends on `NODE_ENV` env var
 - make sure to add secrets as env variables in the config files
+
+
+## TODO:
+- [ ] update `docker-compose.yml` to automatically run `npx migrate`
+- [ ] secret detection pre-commit hook
+- [ ] API example tests
+- [ ] GitHub actions for lint and test
+- [ ] auto changelog
+- [ ] semantic versioning?
