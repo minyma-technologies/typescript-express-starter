@@ -25,6 +25,8 @@
     "zod": "^3.19.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/prompt-cli": "^17.3.0",
     "@types/bcrypt": "^5.0.0",
     "@types/config": "^3.3.0",
     "@types/express": "^4.17.14",
@@ -39,7 +41,6 @@
     "husky": "^8.0.2",
     "jest": "^29.3.1",
     "jest-mock-extended": "^3.0.1",
-    "lint-staged": "^13.0.3",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.0",
     "prisma": "^4.6.1",
@@ -71,15 +72,7 @@
       "./test/mocks/prisma.mock.ts"
     ]
   },
-  "lint-staged": {
-    ".ts": [
-      "npm run lint:fix",
-      "jest --bail --findRelatedTests"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-emoji-conventional"
-    }
+  "commitlint": {
+    "extends": "cz-emoji-conventional"
   }
 }

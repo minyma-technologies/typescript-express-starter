@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# before push lint, and stylecheck everything
+npm run lint:fix
+# stash any changed files after lint:fix
+git add .
+# commitlint last commit message
+npx commitlint --from=HEAD~1
+
+exit 1
