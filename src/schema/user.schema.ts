@@ -12,7 +12,7 @@ export const userUpdate = z.object({
   email: z.string().email().optional(),
 });
 
-export const userReturn = userUpdate.omit({password: true});
+export const userReturn = userUpdate.omit({ password: true });
 
 export type UserCreate = z.infer<typeof userCreate>;
 export type UserUpdate = z.infer<typeof userUpdate>;

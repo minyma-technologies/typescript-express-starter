@@ -10,6 +10,7 @@
 - run dev server: `npm run start:dev`
 
 ### Using Docker Compose
+
 - fetch the template from GitHub: `npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder> --mode=git`
 - `cd <target-folder>`
 - build the Docker image: `docker-compose build`
@@ -44,6 +45,7 @@ This template is _very_ based. It includes:
 ## Usage
 
 ### Commiting
+
 - this project uses commitizen
 - this allows for uniform commit messages as well as automatic changelog generation, based on commit messages
 - run `git commit` (no message needed)
@@ -65,8 +67,8 @@ This template is _very_ based. It includes:
 - note that the config loaded depends on `NODE_ENV` env var
 - make sure to add secrets as env variables in the config files
 
-
 ## TODO:
+
 - [ ] update `docker-compose.yml` to automatically run `npx migrate`
 - [ ] secret detection pre-commit hook
 - [ ] API example tests
