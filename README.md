@@ -2,16 +2,29 @@
 
 ## Install
 
-- fetch the template from GitHub: `npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder> --mode=git`
+### Get the template
+
+#### Using `degit`
+
+[`degit`](https://github.com/Rich-Harris/degit) is an npm package, that when given a repository name, downloads the contents of the repo but not the `.git` folder, hence you will get the code, but will start with a clean git history. [`tiged`](https://github.com/tiged/tiged) is a community maintained fork of degit with equivalent API, but better long term support.
+To download the template run:
+`npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder>`
+
+#### Using Github template repository
+
+You can instantiate a GitHub repository with a starting template by navigating to [this](https://github.com/minyma-technologies/typescript-express-starter) repo and hitting "Use this template" in the top right corner.
+This will create a remote repository, which you can the clone locally.
+
+### Run the project locally
+
 - `cd <target-folder>`
 - install dependencies: `npm install`
 - generate Prisma client: `npx prisma generate`
 - synch Prisma with db: `npx prisma migrate dev --init`
 - run dev server: `npm run start:dev`
 
-### Using Docker Compose
+### Run in a container using Docker Compose
 
-- fetch the template from GitHub: `npx tiged https://github.com/minyma-technologies/typescript-express-starter.git <target-folder> --mode=git`
 - `cd <target-folder>`
 - build the Docker image: `docker-compose build`
 - launch the containers: `docker-compose up`
@@ -34,6 +47,7 @@ This template is _very_ based. It includes:
 - [x] [Jest](https://jestjs.io/) for testing
 - [x] [Husky](https://typicode.github.io/husky/#/) for pre-commit hooks
 - [x] [Commitizen](https://github.com/commitizen/cz-cli) to enforce commit message rules
+- [x] [Postgres](https://www.postgresql.org/) as preconfigured database. This can be changed easily, by changing the database connection url in .env (see .env.example). For more details go [here](https://www.prisma.io/docs/concepts/database-connectors)
 
 ### Base features
 
@@ -45,6 +59,10 @@ This template is _very_ based. It includes:
 - [x] Pre-push git hooks to lint code and commit message before publishing changes
 
 ## Usage
+
+### Accessing the database
+
+While it is possible to interact with your chosen database via their provided CLI or GUI client, prisma provides an easy-to-use GUI client out of the box. To access it, simply run `npx prisma studio`, then navigate to `localhost:5555` in your browser.
 
 ### Editing the data model
 
