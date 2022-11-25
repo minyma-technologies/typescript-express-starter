@@ -70,11 +70,11 @@ This template is _very_ based. It includes:
 ### Test and coverage checks in CI
 
 - test and coverage checks are run within the GitHub CI, and are enforced (or not) by the repository maintainer pre-merge.
-- this allows WIP branches to be pushed without being blocked by a coverage threshold too high or by temporarily failing unit tests.
+- this allows WIP branches to be pushed without being blocked by a coverage threshold too high, or by temporarily failing unit tests.
 
 ### Pre-commit hooks
 
-- there are no pre commit hooks. Developers should be able to make as many commits a they want locally. Commits should be squashed upon merge, hence only the last commit message _has to_ confirm to commit message conventions.
+- there are no pre commit hooks. Developers should be able to make as many commits, as they want locally. Commits should be squashed upon merge, hence only the last commit message _has to_ confirm to commit message conventions.
 
 ## TODO:
 
