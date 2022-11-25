@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --ext .ts --fix --quiet && prettier --write .",
     "start:dev": "NODE_ENV=dev nodemon src/main.ts",
     "start:prod": "npm run build && NODE_ENV=prod node dist/src/main.js",
+    "commit": "cz",
     "prepare": "husky install"
   },
   "author": "godraadam",

@@ -41,18 +41,10 @@ This template is _very_ based. It includes:
 - [x] A User model with username and password
 - [x] Register endpoint with password hashing via `bcrypt`, at `/api/auth/register POST`
 - [x] Login endpoint which cheks the hashed passwords and yields a `jwt` token at `api/auth/login POST`
+- [x] GitHub Actions config for lint, test and coverage
+- [x] Pre-push git hooks to lint code and commit message before publishing changes
 
 ## Usage
-
-### Commiting
-
-- this project uses commitizen
-- this allows for uniform commit messages as well as automatic changelog generation, based on commit messages
-- run `git commit` (no message needed)
-- select the type of commit you wish to make
-- add description
-- select if changes were braking or not (with respect to the api)
-- the write out commit message if needed
 
 ### Editing the data model
 
@@ -67,11 +59,27 @@ This template is _very_ based. It includes:
 - note that the config loaded depends on `NODE_ENV` env var
 - make sure to add secrets as env variables in the config files
 
+### Pre-push checks
+
+- this repo uses husky and commitizen to enforce certain rules before changes are pushed to remote
+- namely, after the `push` command is issued:
+  - `lint:fix` is ran, and changes automatically staged and amended to last commit. If there are lint problems that eslint can't autofix, the push will abort.
+  - `commitlint` is used to check if last commit message conforms to commit message rules. If not, you will be prompted to write a commit message from the possible options. After the valid commit message is entered the last commit message will be updated.
+  - you can use `npm run commit` or `npx cz` to automatically pull up the commit message prompt.
+
+### Test and coverage checks in CI
+
+- test and coverage checks are run within the GitHub CI, and are enforced (or not) by the repository maintainer pre-merge.
+- this allows WIP branches to be pushed without being blocked by a coverage threshold too high or by temporarily failing unit tests.
+
+### Pre-commit hooks
+
+- there are no pre commit hooks. Developers should be able to make as many commits a they want locally. Commits should be squashed upon merge, hence only the last commit message _has to_ confirm to commit message conventions.
+
 ## TODO:
 
 - [ ] update `docker-compose.yml` to automatically run `npx migrate`
 - [ ] secret detection pre-commit hook
 - [ ] API example tests
-- [ ] GitHub actions for lint and test
 - [ ] auto changelog
 - [ ] semantic versioning?
