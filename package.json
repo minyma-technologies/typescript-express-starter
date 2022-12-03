@@ -9,7 +9,7 @@
     "coverage": "NODE_ENV=test jest test/**/*.spec.ts --coverage",
     "lint": "eslint . --ext .ts --quiet && prettier --check .",
     "lint:fix": "eslint . --ext .ts --fix --quiet && prettier --write .",
-    "start:dev": "NODE_ENV=dev nodemon src/main.ts",
+    "start:dev": "NODE_ENV=dev tsx watch src/main.ts",
     "start:prod": "npm run build && NODE_ENV=prod node dist/src/main.js",
     "commit": "cz",
     "prepare": "husky install"
@@ -48,6 +48,7 @@
     "prisma": "^4.6.1",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
+    "tsx": "^3.12.1",
     "typescript": "^4.9.3"
   },
   "packageManager": "^npm@8.1.0",
