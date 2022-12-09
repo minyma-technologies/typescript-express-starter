@@ -46,7 +46,6 @@ This template is _very_ based. It includes:
 - [x] [Prettier](https://prettier.io/) for style checking
 - [x] [Jest](https://jestjs.io/) for testing
 - [x] [Husky](https://typicode.github.io/husky/#/) for pre-commit hooks
-- [x] [Commitizen](https://github.com/commitizen/cz-cli) to enforce commit message rules
 - [x] [Postgres](https://www.postgresql.org/) as preconfigured database. This can be changed easily, by changing the database connection url in .env (see .env.example). For more details go [here](https://www.prisma.io/docs/concepts/database-connectors)
 
 ### Base features
@@ -56,7 +55,7 @@ This template is _very_ based. It includes:
 - [x] Register endpoint with password hashing via `bcrypt`, at `/api/auth/register POST`
 - [x] Login endpoint which cheks the hashed passwords and yields a `jwt` token at `api/auth/login POST`
 - [x] GitHub Actions config for lint, test and coverage
-- [x] Pre-push git hooks to lint code and commit message before publishing changes
+- [x] Pre-push git hooks to lint code before publishing changes
 
 ## Usage
 
@@ -79,11 +78,10 @@ While it is possible to interact with your chosen database via their provided CL
 
 ### Pre-push checks
 
-- this repo uses husky and commitizen to enforce certain rules before changes are pushed to remote
+- this repo uses husky to enforce certain rules before changes are pushed to remote
 - namely, after the `push` command is issued:
-  - `lint:fix` is ran, and changes automatically staged and amended to last commit. If there are lint problems that eslint can't autofix, the push will abort.
-  - `commitlint` is used to check if last commit message conforms to commit message rules. If not, you will be prompted to write a commit message from the possible options. After the valid commit message is entered the last commit message will be updated.
-  - you can use `npm run commit` or `npx cz` to automatically pull up the commit message prompt.
+  - `npm lint` is ran, if there are lint issues, the push will abort.
+  - `npm test` is disabled by default, go to `.husky/pre-push` to enable
 
 ### Test and coverage checks in CI
 
@@ -99,5 +97,3 @@ While it is possible to interact with your chosen database via their provided CL
 - [ ] update `docker-compose.yml` to automatically run `npx migrate`
 - [ ] secret detection pre-commit hook
 - [ ] API example tests
-- [ ] auto changelog
-- [ ] semantic versioning?
