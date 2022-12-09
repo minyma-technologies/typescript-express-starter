@@ -36,8 +36,6 @@
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
-    "commitizen": "^4.2.5",
-    "commitlint-config-git-commit-emoji": "^1.0.0",
     "eslint": "^8.28.0",
     "husky": "^8.0.2",
     "inquirer": "^8.2.5",
@@ -74,13 +72,5 @@
     "setupFilesAfterEnv": [
       "./test/mocks/prisma.mock.ts"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  },
-  "commitlint": {
-    "extends": "git-commit-emoji"
   }
 }

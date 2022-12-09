@@ -2,27 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # before push lint, and stylecheck everything
-npm run lint:fix
-# stage any changed files after lint:fix
-git add .
-# commitlint last commit message
-npx commitlint --from=HEAD~1
-# if commitlint failed, prompt and amend
-if [$? -ne 0] 
-then 
-    echo "Commit message does not comform to rules, please follow the guide:"
-    npx cz -a
-else
-    git commit --amend --no-edit
-fi
-
-# Note #1: testing or coverage checks are not done on developer side, pre-push
-# rather, they run on github CI, and are endorced pre-merge.
-# This prevents a lot of stupid blocking, like reaching a given coverage threshold
-# on a development branch, or fixing all temporarily failing unit tests.
-
-# Note #2: there are no pre-commit hooks, as the developer workflow should not be interrupted
-# by enforcing arbitrary commit message formats, or lint rules. Lots of developers like to make
-# many small commits to save 'checkpoints' in their development. We would not like to force
-# developers to adhere to commit message rules, if the only commit message making it to the repository
-# will be the push commit anyway (assuming commits are squashed on merge, which they should be).
+npm run lint
+# testing disabled by default, run only in CI
+# npm run test
