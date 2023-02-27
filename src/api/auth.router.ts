@@ -1,10 +1,6 @@
 import { Router, Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import config from "config";
 import { validate } from "./middleware";
 import { LoginSchema, loginSchema } from "../schema/auth.schema";
-import { prisma } from "../db/client";
-import bcrypt from "bcrypt";
 import { UserCreate, userCreate } from "../schema/user.schema";
 import { getJwtToken } from "../service/auth.service";
 import { registerUser } from "../service/user.service";

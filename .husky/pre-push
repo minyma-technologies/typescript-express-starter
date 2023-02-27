@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# before push lint, and stylecheck everything
-npm run lint
-# testing disabled by default, run only in CI
-# npm run test
