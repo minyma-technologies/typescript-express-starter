@@ -20,8 +20,8 @@ This will create a remote repository, which you can the clone locally.
 - `cd <target-folder>`
 - install dependencies: `npm install`
 - generate Prisma client: `npx prisma generate`
-- synch Prisma with db: `npx prisma migrate dev --init`
-- run dev server: `npm run start:dev`
+- synch Prisma with db: `npx prisma migrate dev --name init`
+- run dev server: `npm run dev`
 
 ### Run in a container using Docker Compose
 
